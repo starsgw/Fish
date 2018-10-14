@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+
+{% block script %}
+    <script>
+        $(function () {
+            $('#btn').click(function () {
+                var order_id = "{{ comid }}"
+                {####################################支付宝货物账单号插入处#################################################}
+                var commoney={{ commoney }}
+                var req_data = {
+                    order_id: order_id,
+                    commoney:commoney,
+                    csrfmiddlewaretoken: "{{ csrf_token }}"
+                };
+                $.post("/sqlapp/pay/", req_data, function (data) {
+                    window.open(data.url)
+                });
+                $.get("/sqlapp/check_pay/?order_id=" + order_id+"&commoney="+commoney, function (data) {
+                    if (0 == data.code) {
+                        // 支付成功
+                        alert("支付成功");
+                        location.reload();
+                        location="/sqlapp/paysuccess/?comid={{ comid }}"
+                    } else {
+                        alert(data.message)
+                    }
+                })
+            })
+        })
+    </script>
+
+{% endblock script %}
+
+{% block baseindex %}
+        扫描二维码支付以购买
+        {{ comid }}商品{{ commoney }}
+        <input type="button" id="btn" value="支付">
+
+        <a href="/sqlapp/paysuccess/?comid={{ comid }}">确认购买</a>
+
+{% endblock baseindex %}
+{#</body>#}
+{#</html>#}

@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{#{% block indexcss %}#}
+{#    <link rel="stylesheet" type="text/css" href={% static "css/shopcar.css" %}/>#}
+{#{% endblock indexcss %}#}
+
+{% block fun %}
+
+{% endblock fun%}
+
+{% block baseindex %}
+    <div class=fenlel1>
+                        <a href="#" name="A">
+                            <p>♥
+                                <font>{{ comname }}</font>
+                            </p>
+                        </a>
+    </div>
+
+    <div class="public-width line5">
+        <table class="line5-table">
+{#						<tr>#}
+                {% for imgname in comlist %}
+{#							<td width="20%">#}
+                    <a ><img style="height: 220px;width: 220px" src={% static 'img/goods/'|add:imgname.comid|add:'.jpg' %} onclick="buycom('{{ imgname.comid }}')"/>&nbsp;&nbsp;&nbsp;</br>
+                        <p style="color: black">商品名称：{{ imgname.comname }}</p>
+                        <p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                        <p >&nbsp;&nbsp;&nbsp;</p>
+                    </a>
+                    {% if forloop.counter|divisibleby:5 %}
+                        </br>
+                    {% endif %}
+{#							</td>#}
+                {% endfor %}
+
+        </table>
+    </div>
+{% endblock baseindex %}

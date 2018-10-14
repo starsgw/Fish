@@ -1,0 +1,132 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#	<head>#}
+{#		<meta charset="UTF-8">#}
+{#		<title>购物车</title>#}
+{##}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/common.css" %} />#}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/index.css" %} />#}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/shopcar.css" %}/>#}
+{#	</head>#}
+{#    <script>#}
+{#        function pay(comid) {#}
+{#            location=location="/sqlapp/pay/"+"?"+"comid="+comid#}
+{#        }#}
+{#    </script>#}
+{#	<body>#}
+{#		<div class="public-width line1">#}
+{#		</div>#}
+{#		<div class="public-width line2">#}
+{#			<div class="line2-nav">#}
+{#				<ul>#}
+{#					<li>#}
+{#						<a href="#">闲鱼商城</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">商品分类</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">卖家中心</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">买家中心</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">联系客服</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">网站导航</a><span>|</span></li>#}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="line2-tool">#}
+{#				<div class="tool-1">#}
+{#					<ul>#}
+{#						<li>#}
+{#							<a href="#">登录</a><span>|</span></li>#}
+{#						<li>#}
+{#							<a href="#">注册</a><span>|</span></li>#}
+{#						<li>#}
+{#							<a href="#">消息通知</a>#}
+{#						</li>#}
+{#					</ul>#}
+{#				</div>#}
+{#				<div class="tool-2">#}
+{#					购物车（0）#}
+{#				</div>#}
+{##}
+{#			</div>#}
+{##}
+{#		</div>#}
+{##}
+{#		<div class="public-width line-3">#}
+{#			<div class="public-center box">#}
+{#				<div class="logo1">#}
+{##}
+{#				</div>#}
+{#				<div class="logo2">#}
+{##}
+{#				</div>#}
+{#				<div class="box-nav">#}
+{##}
+{#					<a href="#">网站首页</a>#}
+{#					<a href="#">数码产品</a>#}
+{#					<a href="#">生活用品</a>#}
+{#					<a href="#">学习资料</a>#}
+{#					<a href="#">乐器产品</a>#}
+{#					<a href="#">发布闲置</a>#}
+{#					<a href="#">我的闲置</a>#}
+{#					<!--<a href="#">服务</a>#}
+{#					<a href="#">社区</a>-->#}
+{##}
+{#				</div>#}
+{#				<div class="box-search">#}
+{##}
+{#					<div class="search-1">#}
+{#						<span>苹果手机</span>#}
+{#						<span>品牌电脑</span>#}
+{#					</div>#}
+{#					<div class="search-2">#}
+{##}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{% block indexcss %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/shopcar.css" %}" />
+{% endblock indexcss %}
+
+{% block fun %}
+    function pay(comid) {
+            location=location="/sqlapp/index2/"+"?"+"comid="+comid
+        }
+    var k=0
+    function del(comid){
+        location=location="/sqlapp/shoppingdel/"+"?"+"comid="+comid
+    }
+{% endblock fun %}
+
+{% block baseindex %}
+		<div class="shopname">
+			<a href="#" name="A">
+						<p>
+                            <font>我的购物车</font>
+						</p>
+			</a>
+		</div>
+
+		<div class="shopcar">
+			<table class="cartable">
+                {% for comnames in comnamelist %}
+                    <tr>
+                        <td width="30%"><div class="good"><img src="{% static 'img/goods/'|add:comnames.comid|add:'.jpg' %}"></div></td>
+                        <td width="30%"><p>{{ comnames.comname }}</p></td>
+                        <td width="10%"><p>{{ comnames.comdescribe }}<br>
+                        <td width="10%"><p>{{ comnames.commoney }}&yen;</p></td>
+                        <td width="10%"><input type="submit" value="点击购买" onclick="pay({{ comnames.comid }})"/></td>
+                        <td width="10%"><input type="submit" value="从购物车删除" onclick="del({{ comnames.comid }})"></td>
+                        </tr>
+                {% endfor %}
+			</table>
+		</div>
+
+{% endblock baseindex%}
+{#	</body>#}
+{#</html>#}

@@ -1,0 +1,151 @@
+{% load static from staticfiles %}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#<form  method="post">#}
+{#    请输入您的账号<input name="id" type="text"><br>#}
+{#    请输入您的密码<input name="password" type="text"><br>#}
+{#    请确认您的密码<input name="password2" type="text"><br>#}
+{#    请输入您的昵称<input name="name" type="text"><br>#}
+{#    {% if limit == "管理员" %}#}
+{#        请输入注册口令<input name="command" type="text"><br>#}
+{#        <input type="submit" value="提交" formaction="/sqlapp/finish2/" >#}
+{#    {% endif %}#}
+{#    {% if limit == "用户" %}#}
+{#        <input type="submit" value="提交" formaction="/sqlapp/finish/" >#}
+{#    {% endif %}#}
+{##}
+{##}
+{##}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册界面</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/regiest.css' %}" />
+	</head>
+	<body>
+    <form method="post">
+		<div class="public-login">
+			<div class="public-longinline fra">
+				<h2 align="center">注册界面</h2>
+				<table class="table" >
+					<tr height="10%">
+						<td width="45%"><font class="bt">请输入您的账号：</font></td>
+						<td><input class="tx" name="id" type="text"></td>
+
+					</tr>
+                    <tr height="5%">
+                        <td colspan="2" align="center">
+                            {% if mess1 == 1 %}
+                                <font style="color: red;font-size: small" >你要注册的账号已存在</font>
+                            {% else %}
+                                <font style="color:transparent ">欢迎光临</font>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+					<tr height="10%">
+						<td><font class="bt">请输入您的密码：</font></td>
+						<td><input class="tx" name="password" type="password"></td>
+					</tr>
+                    <tr height="5%">
+                        <td colspan="2" align="center">
+                            {% if mess1 == 2 %}
+                                <font style="color: red;font-size: small">两次输入的密码不相同</font>
+                            {% else %}
+                                <font style="color:transparent ">欢迎光临</font>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+					<tr height="10%">
+						<td width="40%"><font class="bt">请确认您的密码：</font></td>
+						<td><input class="tx" name="password2" type="password"></td>
+					</tr>
+                    <tr height="5%">
+                        <td colspan="2" align="center">
+                            {% if mess1 == 2 %}
+                                <font style="color: red;font-size: small">两次输入的密码不相同</font>
+                            {% else %}
+                                <font style="color:transparent ">欢迎光临</font>
+                            {% endif %}
+                        </td>
+                    </tr>
+					<tr height="10%">
+						<td><font class="bt">请输入您的昵称：</font></td>
+						<td><input class="tx" name="name" type="text"></td>
+					</tr>
+                    <tr height="5%">
+                        <td colspan="2" align="center">
+                            {% if mess1 == 3 %}
+                                <font style="color: red;;font-size: small">注册时昵称不能为空</font>
+                            {% else %}
+                                <font style="color:transparent ">欢迎光临</font>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% if limit == "管理员" %}
+                        <tr height="10%">
+
+                                <td><font class="bt">请输入注册口令：</font></td>
+                                <td><input class="tx" name="command" type="type"></td>
+                        </tr>
+                        <tr height="5%">
+                        <td colspan="2" align="center">
+                            {% if mess1 == 0 %}
+                                <font style="color: red;font-size: small">输入的注册口令不正确</font>
+                            {% else %}
+                                <font style="color:transparent ">欢迎光临</font>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                        <tr height="10%">
+                            <td colspan="2"><input class="bt3"  type="submit" value="提交"  formaction="/sqlapp/finish2/"></td>
+                            <!--<td></td>-->
+                        </tr>
+                    {% endif %}
+                    {% if limit == "用户" %}
+                        <tr height="10%">
+                            <td colspan="2"><input class="bt3"  type="submit" value="提交"  formaction="/sqlapp/finish/"></td>
+                            <!--<td></td>-->
+                        </tr>
+                    {% endif %}
+				</table>
+			</div>
+		</div>
+    </form>
+	</body>
+
+
+
+
+
+
+
+		<!--<form  method="post">
+    		请输入您的账号<input name="id" type="text"><br>
+   			 请输入您的密码<input name="password" type="text"><br>
+    		请确认您的密码<input name="password2" type="text"><br>
+    		请输入您的昵称<input name="name" type="text"><br>
+
+        	请输入注册口令<input name="command" type="text"><br>
+
+    	<input type="button" value="提交" onclick="jump()">-->
+
+
+
+
+
+	</body>
+</html>

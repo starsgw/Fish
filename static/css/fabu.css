@@ -1,0 +1,78 @@
+body{
+	color: black;
+}
+.fabu{
+	width: 100%;
+	min-height: 660px;
+/*	border: 2px solid red;*/
+	background-image: url(../img/lo/1.jpg);
+}
+.fabutable{
+	width: 450px;
+	height: 480px;
+/*	border: 2px solid blue;*/
+	position: absolute;
+	/*top: 50%;*/
+	margin-top: 250px;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+
+}
+.fbtable{
+	width: 430px;
+	height: 480px;
+	/*border: 2px solid pink;*/
+	margin-left: 10px;
+	background-color:rgba(0,0,0,0.05);
+}
+.title{
+	font-size: 25px;
+	text-align: center;
+}
+tr{
+	height: 50px;
+}
+span{
+	font-size: 20px;
+	margin-left: 12px;
+}
+.fabu input{
+	width: 240px;
+	height: 40px;
+	font-size: 18px;
+	margin-left: 20px;
+	border-radius: 15px;
+	outline: none;
+	background-color:rgba(167,209,234,0.05);
+	border: none;
+
+}
+
+.fabu input:hover{
+	background-color: rgba(167,209,234,0.3);
+
+}
+select{
+	width: 240px;
+	height: 40px;
+	margin-left: 20px;
+	font-size: 20px;
+	background-color:rgba(167,209,234,0.05);
+	border-radius: 15px;
+	outline: none;
+}
+select:hover{
+	background-color: rgba(167,209,234,0.3);
+
+}
+.fabutijiao{
+	margin-left: 80px;
+}
+.fabutijiao:hover{
+	background-color: rgba(167,209,234,0.5);
+}

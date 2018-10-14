@@ -1,0 +1,109 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{% block indexcss %}
+    <!--这里填充css-->
+{#    <meta charset="UTF-8">#}
+{#    <title>我的闲置发布界面</title>#}
+{#    <link rel="stylesheet" type="text/css" href={% static 'css/common.css' %}/>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fabu.css' %}" />
+{% endblock indexcss %}
+{% block fun %}
+    <!--这里填充方法-->
+{#    function upload(){#}
+{#        location="/sqlapp/inserttijiao/"#}
+{#    }#}
+{% endblock fun %}
+{% block baseindex %}
+{#    <form action="/sqlapp/inserttijiao/" method="post">#}
+{#        商品id：<input type="text" name="comid"><br>#}
+{#        商品名称：<input type="text" name="comname"><br>#}
+{#        商品描述：<input type="text" name="comdescribe"><br>#}
+{#        商品地点：<input type="text" name="complace"><br>#}
+{#        用户id：<input type="text" name="userid"><br>#}
+{#        用户qq：<input type="text" name="userqq"><br>#}
+{#        用户电话：<input type="text" name="usertel"><br>#}
+{#        商品发布时间：<input type="text" name="dtime"><br>#}
+{#        商品价格：<input type="text" name="commoney"><br>#}
+{#        商品类型：<input type="text" name="comtype"><br>#}
+{#        商品类型：<select name="comtype">#}
+{#                    <option>数码产品</option>#}
+{#                    <option>生活用品</option>#}
+{#                    <option>学习资料</option>#}
+{#                    <option>乐器产品</option>#}
+{#                    <option>其他</option>#}
+{#                  </select><br>#}
+{#        <input type="submit" value="提交">#}
+{##}
+{#    </form>#}
+    <div class="fabu">
+			<div class="fabutable">
+				<table class="fbtable" >
+				<tr>
+					<td class="title" colspan="2">发布闲置页面</td>
+					<!--<td></td>-->
+				</tr>
+
+            <form action="/sqlapp/inserttijiao/" method="post">
+				<tr>
+					<td width="30%"><span>商品编号：</span></td>
+					<td width="70%"><input type="text" name="comid"></td>
+				</tr>
+
+				<tr>
+					<td><span>商品名称：</span></td>
+					<td><input type="text" name="comname"></td>
+				</tr>
+
+				<tr>
+					<td><span>商品描述：</span></td>
+					<td><input type="text" name="comdescribe"></td>
+				</tr>
+
+				<tr>
+					<td><span>商品地点：</span></td>
+					<td><input type="text" name="complace"></td>
+				</tr>
+
+				<tr>
+					<td><span>用户QQ  ：</span></td>
+					<td><input type="text" name="userqq"></td>
+				</tr>
+
+				<tr>
+					<td><span>用户tel&nbsp;&nbsp;&nbsp;：</span></td>
+					<td><input type="text" name="usertel"></td>
+				</tr>
+
+				<tr>
+					<td><span>商品价格：</span></td>
+					<td><input type="text" name="commoney"></td>
+				</tr>
+
+				<tr>
+					<td><span>商品类型：</span></td>
+					<td><select name="comtype">
+                    <option>数码产品</option>
+                    <option>生活用品</option>
+                    <option>学习资料</option>
+                    <option>乐器产品</option>
+                    <option>其他</option>
+                  </select></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input class="fabutijiao" type="submit" value="提交"></td>
+					<!--<td></td>-->
+				</tr>
+                </form>
+				</table>
+			</div>
+
+		</div>
+
+{% endblock baseindex %}
+
+
+
+
+

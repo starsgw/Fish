@@ -1,0 +1,193 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#   <link rel="stylesheet" type="text/css" href="{% static 'css/shopping.css' %}">#}
+{##}
+{#<script>#}
+{#        function buy(com){#}
+{#            location="/sqlapp/buy/"+com+"/"#}
+{#        }#}
+{#</script>#}
+{##}
+{#<body>#}
+{#<div>#}
+{#        <div>#}
+{#        <img src="{% static comimg %}" class="i">#}
+{#        </div>#}
+{#        <div>#}
+{#            <h1>{{ comname }}</h1>#}
+{#        价格：{{ commoney }}元<br>#}
+{#        成色：{{ comdescribe }}<br>#}
+{#        所在地：{{ complace }}<br>#}
+{#        卖家电话：{{ usertel }}<br>#}
+{#        交易方式：<select>#}
+{#                    <option>包送至宿舍</option>#}
+{#                    <option>自取</option>#}
+{#                </select><br>#}
+{#        <input type="button" value="立即购买" onclick="buy('{{ comid }}')"><br>#}
+{#        </div>#}
+{#        <div>#}
+{#            留言：#}
+{#        </div>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#	<head>#}
+{#		<meta charset="UTF-8">#}
+{#		<title>购物车</title>#}
+{#        <script>#}
+{#        function buy(com){#}
+{#            location="/sqlapp/buy/"+com+"/"#}
+{#        }#}
+{#</script>#}
+{#	</head>#}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/common.css" %} />#}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/index.css" %} />#}
+{#		<link rel="stylesheet" type="text/css" href={% static "css/jieshao.css" %}/>#}
+{#	<body>#}
+{#		<div class="public-width line1">#}
+{#		</div>#}
+{#		<div class="public-width line2">#}
+{#			<div class="line2-nav">#}
+{#				<ul>#}
+{#					<li>#}
+{#						<a href="#">闲鱼商城</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">商品分类</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">卖家中心</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">买家中心</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">联系客服</a><span>|</span></li>#}
+{#					<li>#}
+{#						<a href="#">网站导航</a><span>|</span></li>#}
+{##}
+{#				</ul>#}
+{#			</div>#}
+{#			<div class="line2-tool">#}
+{#				<div class="tool-1">#}
+{#					<ul>#}
+{#						<li>#}
+{#							<a href="#">登录</a><span>|</span></li>#}
+{#						<li>#}
+{#							<a href="#">注册</a><span>|</span></li>#}
+{#						<li>#}
+{#							<a href="#">消息通知</a>#}
+{#						</li>#}
+{#					</ul>#}
+{#				</div>#}
+{#				<div class="tool-2">#}
+{#					购物车（0）#}
+{#				</div>#}
+{##}
+{#			</div>#}
+{##}
+{#		</div>#}
+{##}
+{#		<div class="public-width line-3">#}
+{#			<div class="public-center box">#}
+{#				<div class="logo1">#}
+{##}
+{#				</div>#}
+{#				<div class="logo2">#}
+{##}
+{#				</div>#}
+{#				<div class="box-nav">#}
+{##}
+{#					<a href="#">网站首页</a>#}
+{#					<a href="#">数码产品</a>#}
+{#					<a href="#">生活用品</a>#}
+{#					<a href="#">学习资料</a>#}
+{#					<a href="#">乐器产品</a>#}
+{#					<a href="#">发布闲置</a>#}
+{#					<a href="#">我的闲置</a>#}
+{#					<!--<a href="#">服务</a>#}
+{#					<a href="#">社区</a>-->#}
+{##}
+{#				</div>#}
+{#				<div class="box-search">#}
+{##}
+{#					<div class="search-1">#}
+{#						<span>苹果手机</span>#}
+{#						<span>品牌电脑</span>#}
+{#					</div>#}
+{#					<div class="search-2">#}
+{##}
+{#					</div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{% block indexcss %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/jieshao.css" %}" />
+{% endblock indexcss %}
+
+{% block fun %}
+        function buy(com){
+            location="/sqlapp/buy/"+com+"/"
+        }
+{% endblock fun %}
+
+{% block baseindex %}
+		<div class="big">
+			<div class="bigleft">
+				<div class="leftup">
+					<img src="{% static comimg %}"/>
+				</div>
+				<div class="leftdown">
+					<table class=leftdowntable>
+						<tr>
+							<td><p>♥<font>请填写留言：</font></p><textarea class="liuyan" rows="5" cols="20" ></textarea></td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+
+
+			<div class="bigright">
+				<table class="jianjietable" >
+					<tr >
+						<td colspan="2" class="ti"><p>{{ comname }}</p></td>
+						<!--<td></td>-->
+					</tr>
+					<tr>
+						<td width="35%" class="pu"><p>交易价格：</p></td>
+						<td><font color="#ff6700">&yen;</font><p class="price">{{ commoney }}</p>元<p class="dazhe" >特价优惠哦！</p></td>
+					</tr>
+					<tr>
+						<td class="pu"><p>商品特征：</p></td>
+						<td><p class="tezheng">{{ comdescribe }}</p></td>
+					</tr>
+					<tr>
+						<td class="pu"><p>所在宿舍：</p></td>
+						<td><p>{{ complace }}</p></td>
+					</tr>
+					<tr>
+						<td class="pu"><p>联系QQ&nbsp;：</p></td>
+						<td><p>{{ userqq }}</p></td>
+					</tr>
+					<tr>
+						<td class="pu">联系Tel&nbsp;&nbsp;：</td>
+						<td>{{ usertel }}</td>
+					</tr>
+					<tr>
+						<td  colspan="2"><input class="anniu" type="submit" value="加入购物车" onclick="buy('{{ comid }}')"></td>
+					</tr>
+
+				</table>
+
+			</div>
+
+		</div>
+{% endblock baseindex %}
+{#	</body>#}
+{#</html>#}

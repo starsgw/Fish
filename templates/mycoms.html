@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static from staticfiles %}
+
+{% block indexcss %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/shopcar.css" %}" />
+{% endblock indexcss %}
+
+{% block baseindex %}
+    <div class="shopcar">
+        <table class="cartable">
+            {% for i in comobjs %}
+                <tr>
+                    <td width="30%"><div class="good"><img src="{% static 'img/goods/'|add:i.comid|add:'.jpg' %}"></div></td>
+                    <td width="30%"><p>{{ i.comname }}</p></td>
+                    <td width="10%"><p>{{ i.comdescribe }}<br><p>
+                    <td width="10%"><p>{{ i.commoney }}&yen;</p></td>
+                    <td width="10%"><a href="#">移入收藏夹</a><br><a href="/sqlapp/shoppingcar/" >从购物车删除</a></td>
+                    </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock baseindex %}

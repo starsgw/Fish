@@ -1,0 +1,57 @@
+body{
+	color: black;
+	font-size: 20px;
+}
+
+.fabutupain{
+	width: 100%;
+	height: 660px;
+	/*border: 2px solid red;*/
+	background-image: url(../img/lo/1.jpg);
+	
+}
+
+.fabutupaintable{
+	width: 450px;
+	height: 250px;
+	/*border: 2px solid blue;*/
+	position: absolute;
+	/*top: 50%; */
+	margin-top: 160px;
+	left: 50%; 
+	-webkit-transform: translate(-50%, -50%); 
+	-moz-transform: translate(-50%, -50%); 
+	-ms-transform: translate(-50%, -50%); 
+	-o-transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
+	background-color: rgba(167,209,234,0.2);
+}
+.xiaotable{
+	width: 100%;
+	height: 100%;
+}
+td{
+	text-align: center;
+	height: 20%;
+}
+.chuantu{
+	width: 220px;
+	height: 25px;
+	font-size: 15px;
+	outline: none;
+	
+	
+}
+
+.shangchuan{
+	width: 200px;
+	height: 35px;
+	font-size: 18px;
+	border-radius: 15px;
+	outline: none;
+	border: none;
+	background-color: rgba(167,209,234,0.2);
+}
+.shangchuan:hover{
+	background-color: rgba(167,209,234,0.4);
+}

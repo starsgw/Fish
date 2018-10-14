@@ -1,0 +1,31 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	color: white;
+	font-family: "微软雅黑";
+
+}
+ul,
+ol{
+	list-style: none;
+	/*去列表默认样式*/
+}
+
+a {
+	text-decoration: none;
+	/*去链接的下划线*/
+	display: inline-block;
+}
+img{
+	border: none;
+}
+.public-width {
+	width: 100%;
+	min-width: 1200px;
+}
+
+
+
+

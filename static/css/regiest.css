@@ -1,0 +1,68 @@
+.public-login{
+	height: 600px;
+	width: 100%;
+	background-image: url(/static/img/lo/1.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+h2{
+	color:black;
+	padding-top: 15px;
+	
+}
+
+.fra{
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 450px;
+	width: 400px;
+	height: 350px;
+	background-color:rgba(167,209,234,0.1);
+}
+
+.table{
+	width: 400px;
+	height: 400px;
+}
+
+.table font{
+	color: black;
+}
+
+input{
+	height: 40px;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+.bt{
+	width: 50px;
+	margin-left:40px;
+}
+.bt2{
+	margin-left: 100px;
+}
+
+.bt3{
+	width: 70px;
+	margin-left: 150px;
+	border: none;
+	background-color: rgba(167,209,234,0.1);
+	border-radius: 30px;
+	outline: none;
+	
+	
+}
+.bt3:hover{
+	background-color: grey;
+}
+
+.tx{
+	width: 200px;
+	border: none;
+	border-radius:20px;
+	outline: none;
+	margin-left: 0px;
+
+}

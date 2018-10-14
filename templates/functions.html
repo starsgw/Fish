@@ -1,0 +1,470 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>闲鱼商城</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+	</head>
+
+
+	<script type="application/javascript">
+		indexm=0
+		imglist=["img/icons/goods1.jpg","img/icons/goods2.jpg","img/icons/goods3.jpg"]
+		function fistimg(){
+			document.getElementById("i").src=imglist[indexm]
+			indexm=indexm+1
+			if (indexm>2){
+				indexm=0
+			}
+			setTimeout("fistimg",1000)
+
+		}
+
+		function change(index){
+			document.getElementById("f"+index).color="red"
+			document.getElementById("i").src=imglist[index-1]
+			setTimeout("change(index),1000")
+		}
+		function colorclear(index){
+			document.getElementById("f"+index).color="gray"
+		}
+
+	</script>
+
+
+	<body  onload="fistimg()">
+		<div class="public-width line1">
+		</div>
+		<div class="public-width line2">
+			<div class="line2-nav">
+				<ul>
+					<li>
+						<a href="#">闲鱼商城</a><span>|</span></li>
+					<li>
+						<a href="#">商品分类</a><span>|</span></li>
+					<li>
+						<a href="#">卖家中心</a><span>|</span></li>
+					<li>
+						<a href="#">买家中心</a><span>|</span></li>
+					<li>
+						<a href="#">联系客服</a><span>|</span></li>
+					<li>
+						<a href="#">网站导航</a><span>|</span></li>
+					<!--<li><a href="#">金融</a><span>|</span></li>
+					<li><a href="#">小米商城移动版</a><span>|</span></li>
+					<li><a href="#">问题反馈</a><span>|</span></li>
+					<li><a href="#">Select Region</a><span>|</span></li>	-->
+				</ul>
+			</div>
+			<div class="line2-tool">
+				<div class="tool-1">
+					<ul>
+						<li>
+							<a href="#">登录</a><span>|</span></li>
+						<li>
+							<a href="#">注册</a><span>|</span></li>
+						<li>
+							<a href="#">消息通知</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tool-2">
+					购物车（0）
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="public-width line-3">
+			<div class="public-center box">
+				<div class="logo1">
+
+				</div>
+				<div class="logo2">
+
+				</div>
+				<div class="box-nav">
+
+					<a href="#">网站首页</a>
+					<a href="#">数码产品</a>
+					<a href="#">生活用品</a>
+					<a href="#">学习资料</a>
+					<a href="#">乐器产品</a>
+					<a href="#">发布闲置</a>
+					<a href="#">我的闲置</a>
+					<!--<a href="#">服务</a>
+					<a href="#">社区</a>-->
+
+				</div>
+				<div class="box-search">
+
+					<div class="search-1">
+						<span>苹果手机</span>
+						<span>品牌电脑</span>
+					</div>
+					<div class="search-2">
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="public-width line4">
+			<div class="left">
+				<div class="littlebox 1">
+					<div class="littlenav 1">
+						<a href="#">手机&nbsp;&nbsp;电话卡</a>
+					</div>
+					<div class="photo 1">
+
+					</div>
+				</div>
+				<div class="littlebox 2">
+					<div class="littlenav 2">
+						<a href="#">笔记本&nbsp;&nbsp;平板</a>
+					</div>
+					<div class="photo 2">
+
+					</div>
+				</div>
+				<div class="littlebox 3">
+					<div class="littlenav 3">
+						<a href="#">电视&nbsp;&nbsp;盒子</a>
+					</div>
+					<div class="photo 3">
+
+					</div>
+				</div>
+				<div class="littlebox 4">
+					<div class="littlenav 4">
+						<a href="#">路由器&nbsp;&nbsp;智能硬件</a>
+					</div>
+					<div class="photo 4">
+
+					</div>
+				</div>
+				<div class="littlebox 5">
+					<div class="littlenav 5">
+						<a href="#">移动电源&nbsp;&nbsp;电池&nbsp;&nbsp;插线板</a>
+					</div>
+					<div class="photo 5">
+
+					</div>
+				</div>
+				<div class="littlebox 6">
+					<div class="littlenav 6">
+						<a href="#">耳机&nbsp;&nbsp;音响</a>
+					</div>
+					<div class="photo 6">
+
+					</div>
+				</div>
+
+				<div class="littlebox 7">
+					<div class="littlenav 7">
+						<a href="#">保护套&nbsp;&nbsp;贴膜</a>
+					</div>
+					<div class="photo 7">
+
+					</div>
+				</div>
+				<div class="littlebox 8">
+					<div class="littlenav 8">
+						<a href="#">线材&nbsp;&nbsp;支架&nbsp;&nbsp;储存卡</a>
+					</div>
+					<div class="photo 8">
+
+					</div>
+				</div>
+				<div class="littlebox 9">
+					<div class="littlenav 9">
+						<a href="#">箱包&nbsp;&nbsp;服饰</a>
+					</div>
+					<div class="photo 9">
+
+					</div>
+				</div>
+				<div class="littlebox 10">
+					<div class="littlenav 10">
+						<a href="#">米兔&nbsp;&nbsp;周边生活</a>
+					</div>
+					<div class="photo 10">
+
+					</div>
+					<div class="right">
+						<div class="lunbo">
+							<img id="i" /><br />
+							<div class="totaldian">
+								<font id="f1" onmouseover="change(1)" onmouseout="colorclear(1)" >
+									<div class="d1"><font size="20px" >.</font></div>
+								</font>
+								<font id="f2" onmouseover="change(2)" onmouseout="colorclear(2)" >
+									<div class="d1">
+										<font size="20px" >.</font>
+									</div>
+								</font>
+								<font id="f3" onmouseover="change(3)" onmouseout="colorclear(3)" >
+									<div class="d1">
+										<font size="20px"  >.</font>
+									</div>
+								</font>
+							</div>
+
+							<!--<font id="f4" onmouseover="change(4)" onmouseout="colorclear(4)"><font size="20px" >.</font></font>
+							<font id="f5" onmouseover="change(5)" onmouseout="colorclear(5)"><font size="20px"  >.</font></font>
+							<font id="f6" onmouseover="change(6)" onmouseout="colorclear(6)"><font size="20px"  >.</font></font>
+							<font id="f7" onmouseover="change(7)" onmouseout="colorclear(7)"><font size="20px"  >.</font></font>
+							<font id="f8" onmouseover="change(8)" onmouseout="colorclear(8)"><font size="20px"  >.</font></font>
+							<font id="f9" onmouseover="change(9)" onmouseout="colorclear(9)"><font size="20px"  >.</font></font>-->
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class=fenlel1>
+					<a href="#" name="A">
+						<p>♥
+							<font>开学好物</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+						<tr>
+							<td width="20%">
+								<a href="#"><img src={% static 'img/goods/1112.jpg' %} href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+
+							<td width="20%">
+								<a href="#"><img src="img/goods/img3.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img2.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class=fenlel1>
+					<a href="#" name="B">
+						<p>♥
+							<font>数码产品</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+						<tr>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img1.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+
+							<td width="20%">
+								<a href="#"><img src="img/goods/img3.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img2.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class=fenlel1>
+					<a href="#" name="C">
+						<p>♥
+							<font>生活用品</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+						<tr>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img1.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+
+							<td width="20%">
+								<a href="#"><img src="img/goods/img3.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img2.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class=fenlel1>
+					<a href="#" name="D">
+						<p>♥
+							<font>学习资料</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+						<tr>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img1.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+
+							<td width="20%">
+								<a href="#"><img src="img/goods/img3.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img2.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class=fenlel1>
+					<a href="#" name="E">
+						<p>♥
+							<font>乐器产品</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+						<tr>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img1.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+
+							<td width="20%">
+								<a href="#"><img src="img/goods/img3.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img4.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+							<td width="20%">
+								<a href="#"><img src="img/goods/img2.jpg" href="#" /></br>
+									<p>商品名称：lalal</p>
+									<p>商品价格：30元</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="daohang">
+					<a href="#A">开学好物</a>
+					<a href="#B">数码产品</a>
+					<a href="#C">生活用品</a>
+					<a href="#D">学习资料</a>
+					<a href="#E">乐器产品</a>
+					<a href="#">返回顶部</a>
+					<a href="#">返回底部</a>
+				</div>
+	</body>
+
+</html>

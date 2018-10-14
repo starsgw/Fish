@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% load static from staticfiles %}
+
+{% block indexcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fabubupian.css' %}" />
+{% endblock indexcss %}
+
+{% block baseindex %}
+    <form action="/sqlapp/uploadtijiao/" method="post" enctype="multipart/form-data">
+{#    <label>商品文本信息上传成功</label><br>#}
+{#    <label>请上传商品的图片信息</label><br>#}
+{#    第一张图<input type="file" name="f" value="请上传文件"><br>#}
+{#    <input type="submit" value="上传">#}
+
+    <div class="fabutupain">
+			<div class="fabutupaintable">
+				<table class="xiaotable" >
+				<tr>
+					<td><label>发布闲置图片</label></td>
+				</tr>
+				<tr>
+					<td><label>商品文本信息上传成功</label></td>
+				</tr>
+				<tr>
+					<td><label>请上传商品的图片信息</label></td>
+				</tr>
+				<tr>
+					<td><font>请上传图片：</font><input class="chuantu" type="file" name="f" value="请上传文件"></td>
+				</tr>
+				<tr>
+					<td><input class="shangchuan" type="submit" value="上传"></td>
+				</tr>
+				</table>
+
+				<!--<label>商品文本信息上传成功</label><br>
+    			<label>请上传商品的图片信息</label><br>
+    			<font>请上传图片</font><input type="file" name="f" value="请上传文件"><br>
+    			<input type="submit" value="上传">-->
+			</div>
+
+		</div>
+ </form>
+{% endblock baseindex %}

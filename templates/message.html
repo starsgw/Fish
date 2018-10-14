@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function buy(com){
+            location="/sqlapp/buy/"+com+"/"
+        }
+    </script>
+</head>
+
+
+<body>
+
+{{ comid }}
+<input name="comid" type="button" value="加入购物车" onclick="buy('{{ comid }}')">
+
+</body>
+</html>

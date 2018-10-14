@@ -1,0 +1,501 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<title>闲鱼商城</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mycoms.css' %}" />
+
+        {% block indexcss %}
+            <!--这里填充css-->
+        {% endblock indexcss %}
+	</head>
+
+</html>
+
+
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script>
+        {#$(document).ready(function() {#}
+        {#    $("#logout").click(function () {#}
+                {#document.getElementById("logout").innerHTML="登录1"#}
+                {#document.getElementById("logout").href="/sqlapp/login/"#}
+        {#        $("#logout").ajax({#}
+        {#        url: "/sqlapp/delsession/",#}
+        {#        type: "POST",#}
+                {#dataType: "json",#}
+                {#data: {"username": username},#}
+        {#        success: function (data) {#}
+        {#            alert(2)#}
+        {#            $("#logout").html(data.key);#}
+        {#        }#}
+        {#        })#}
+        {#    })#}
+
+    </script>
+    {% block script %}
+            <!--这里填充方法-->
+    {% endblock script %}
+
+	<script type="application/javascript">
+        {% block fun %}
+            <!--这里填充方法-->
+        {% endblock fun %}
+
+		indexm=0
+		imglist=["/static/img/icons/goods1.jpg","/static/img/icons/goods2.jpg","/static/img/icons/goods3.jpg"]
+		function fistimg(){
+			document.getElementById("i").src=imglist[indexm]
+			indexm=indexm+1
+			if (indexm>2){
+				indexm=0
+			}
+			setTimeout("fistimg()",3000)
+
+		}
+
+		function change(index){
+			document.getElementById("f"+index).color="red"
+			document.getElementById("i").src=imglist[index-1]
+			setTimeout("change(index),1000")
+		}
+		function colorclear(index){
+			document.getElementById("f"+index).color="gray"
+		}
+
+	    function message() {
+
+            loca = document.getElementById("im").src
+            location = "/sqlapp/message/" + loca + "/"
+        }
+
+         function buycom(imgname) {
+                {#comimg = imgname.split("/").pop()#}
+                {#comid=comimg.split(".")[0]#}
+                comimg=imgname+".jpg"
+                comid=imgname
+                location="/sqlapp/buycom/"
+                    +"?"+"comimg="+comimg+"&"+"comid="+comid
+            }
+
+        {#function textchange1(){#}
+		{#	document.getElementById("m1").value=""}#}
+
+		function textchange2(){
+			document.getElementById("m1").value="搜索喜欢的商品"
+		}
+
+
+	</script>
+
+
+	<body  onload="fistimg()">
+		<div class="public-width line1">
+		</div>
+		<div class="public-width line2">
+			<div class="line2-nav">
+				<ul>
+					<li>
+						<a href="/sqlapp/fish/">闲鱼商城</a><span>|</span></li>
+					<li>
+						<a href="#">商品分类</a><span>|</span></li>
+					<li>
+						<a href="#">卖家中心</a><span>|</span></li>
+					<li>
+						<a href="#">买家中心</a><span>|</span></li>
+					<li>
+						<a href="#">联系客服</a><span>|</span></li>
+					<li>
+						<a href="#">网站导航</a><span>|</span></li>
+					<!--<li><a href="#">金融</a><span>|</span></li>
+					<li><a href="#">小米商城移动版</a><span>|</span></li>
+					<li><a href="#">问题反馈</a><span>|</span></li>
+					<li><a href="#">Select Region</a><span>|</span></li>	-->
+				</ul>
+			</div>
+			<div class="line2-tool">
+				<div class="tool-1">
+					<ul>
+                        <li >
+							<a>欢迎{{ username }}</a><span>|</span></li>
+						<li>
+						<li >
+							<a id="logout" href="/sqlapp/login/">{{ loginmess }}</a><span>|</span></li>
+						<li>
+							<a href="/sqlapp/register/">注册</a><span>|</span></li>
+						<li>
+							<a href="#">消息通知</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tool-2">
+					<a href="/sqlapp/shoppingcar/">购物车（{{ num }}）</a>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="public-width line-3">
+			<div class="public-center box">
+				<div class="logo1">
+
+				</div>
+				<div class="logo2">
+
+				</div>
+				<div class="box-nav">
+
+					<a href="/sqlapp/fish/">网站首页</a>
+					<a href="#B">数码产品</a>
+					<a href="#C">生活用品</a>
+					<a href="#D">学习资料</a>
+					<a href="#E">乐器产品</a>
+					<a href="/sqlapp/insert/">发布闲置</a>
+					<a href="/sqlapp/mycoms/">我的闲置</a>
+					<!--<a href="#">服务</a>
+					<a href="#">社区</a>-->
+
+				</div>
+{#				<div class="box-search">#}
+
+{#					<div class="search-1">#}
+{#						<span>苹果手机</span>#}
+{#						<span>品牌电脑</span>#}
+{#					</div>#}
+{#					<div class="search-2">#}
+                <div class="box-search">
+                    <form action="/sqlapp/searchcom/" method="post">
+
+                        <div class="search-1">
+                            <input id="m1" class="text" name="comname" type="text" value="搜索喜欢的物品"/>
+                            <!--<span>苹果手机</span>
+                            <span>品牌电脑</span>-->
+                        </div>
+                        <div class="search-2" >
+                            <label for="sub">提交</label>
+                            <input id="sub" type="submit" value="提交" hidden="true">
+                        </div>
+                    </form>
+				</div>
+			</div>
+		</div>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+        {% block baseindex %}
+		<div class="public-width line4">
+			<div class="left">
+				<div class="littlebox 1">
+					<div class="littlenav 1">
+						<a href="#">手机&nbsp;&nbsp;电话卡</a>
+					</div>
+					<div class="photo 1">
+
+					</div>
+				</div>
+				<div class="littlebox 2">
+					<div class="littlenav 2">
+						<a href="#">笔记本&nbsp;&nbsp;平板</a>
+					</div>
+					<div class="photo 2">
+
+					</div>
+				</div>
+				<div class="littlebox 3">
+					<div class="littlenav 3">
+						<a href="#">电视&nbsp;&nbsp;盒子</a>
+					</div>
+					<div class="photo 3">
+
+					</div>
+				</div>
+				<div class="littlebox 4">
+					<div class="littlenav 4">
+						<a href="#">路由器&nbsp;&nbsp;智能硬件</a>
+					</div>
+					<div class="photo 4">
+
+					</div>
+				</div>
+				<div class="littlebox 5">
+					<div class="littlenav 5">
+						<a href="#">移动电源&nbsp;&nbsp;电池&nbsp;&nbsp;插线板</a>
+					</div>
+					<div class="photo 5">
+
+					</div>
+				</div>
+				<div class="littlebox 6">
+					<div class="littlenav 6">
+						<a href="#">耳机&nbsp;&nbsp;音响</a>
+					</div>
+					<div class="photo 6">
+
+					</div>
+				</div>
+
+				<div class="littlebox 7">
+					<div class="littlenav 7">
+						<a href="#">保护套&nbsp;&nbsp;贴膜</a>
+					</div>
+					<div class="photo 7">
+
+					</div>
+				</div>
+				<div class="littlebox 8">
+					<div class="littlenav 8">
+						<a href="#">线材&nbsp;&nbsp;支架&nbsp;&nbsp;储存卡</a>
+					</div>
+					<div class="photo 8">
+
+					</div>
+				</div>
+				<div class="littlebox 9">
+					<div class="littlenav 9">
+						<a href="#">箱包&nbsp;&nbsp;服饰</a>
+					</div>
+					<div class="photo 9">
+
+					</div>
+				</div>
+				<div class="littlebox 10">
+					<div class="littlenav 10">
+						<a href="#">米兔&nbsp;&nbsp;周边生活</a>
+					</div>
+					<div class="photo 10">
+
+					</div>
+					<div class="right">
+						<div class="lunbo">
+							<img id="i" style="width: 925px;height: 365px"/><br />
+							<div class="totaldian">
+								<font id="f1" onmouseover="change(1)" onmouseout="colorclear(1)" >
+									<div class="d1"><font size="20px" >.</font></div>
+								</font>
+								<font id="f2" onmouseover="change(2)" onmouseout="colorclear(2)" >
+									<div class="d1">
+										<font size="20px" >.</font>
+									</div>
+								</font>
+								<font id="f3" onmouseover="change(3)" onmouseout="colorclear(3)" >
+									<div class="d1">
+										<font size="20px"  >.</font>
+									</div>
+								</font>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+{#开学好物#}{#开学好物#}{#开学好物#}{#开学好物#}{#开学好物#}{#开学好物#}
+				<div class=fenlel1>
+					<a href="#" name="A">
+						<p>♥
+							<font>{{ titlelist.0 }}</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+{#						<tr>#}
+                            {% for imgname in infoList1 %}
+{#							<td width="20%">#}
+								<a ><img style="height: 220px;width: 220px" src={% static 'img/goods/'|add:imgname.comid|add:'.jpg' %} onclick="buycom('{{ imgname.comid }}')"/>&nbsp;&nbsp;&nbsp;</br>
+									<p style="color: black">商品名称：{{ imgname.comname }}</p>
+									<p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                                    <p >&nbsp;&nbsp;&nbsp;</p>
+								</a>
+                                {% if forloop.counter|divisibleby:5 %}
+                                    </br>
+                                {% endif %}
+{#							</td>#}
+                            {% endfor %}
+
+					</table>
+				</div>
+{#数码产品#}{#数码产品#}{#数码产品#}{#数码产品#}{#数码产品#}{#数码产品#}
+				<div class=fenlel1>
+					<a href="#" name="B">
+						<p>♥
+							<font>{{ titlelist.1 }}</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+{#						<tr>#}
+                        {% for imgname in infoList2 %}
+{#							<td width="20%">#}
+								<a ><img onclick="buycom('{{ imgname.comid}}')" style="height: 220px;width: 220px" src="{% static 'img/goods/'|add:imgname.comid|add:'.jpg' %}" />&nbsp;&nbsp;&nbsp;</br>
+									<p style="color: black">商品名称：{{ imgname.comname }}</p>
+									<p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                                    <p >&nbsp;&nbsp;&nbsp;</p>
+								</a>
+                                {% if forloop.counter|divisibleby:5 %}
+                                    </br>
+                                {% endif %}
+{#							</td>#}
+                        {% endfor %}
+
+					</table>
+				</div>
+{#生活用品#}{#生活用品#}{#生活用品#}{#生活用品#}{#生活用品#}{#生活用品#}
+				<div class=fenlel1>
+					<a href="#" name="C">
+						<p>♥
+							<font>{{ titlelist.2 }}</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+{#						<tr>#}
+                        {% for imgname in infoList3 %}
+{#							<td width="20%">#}
+								<a ><img onclick="buycom('{{ imgname.comid}}')" style="height: 220px;width: 220px" src="{% static 'img/goods/'|add:imgname.comid|add:'.jpg' %}" /> &nbsp;&nbsp;&nbsp;</br>
+									<p style="color: black">商品名称：{{ imgname.comname }}</p>
+									<p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                                    <p >&nbsp;&nbsp;&nbsp;</p>
+                                </a>
+                            {% if forloop.counter|divisibleby:5 %}
+                                 </br>
+                            {% endif %}
+{#							</td>#}
+                        {% endfor %}
+
+					</table>
+				</div>
+{#学习资料#}{#学习资料#}{#学习资料#}{#学习资料#}{#学习资料#}{#学习资料#}
+				<div class=fenlel1>
+					<a href="#" name="D">
+						<p>♥
+							<font>{{ titlelist.3 }}</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+{#						<tr>#}
+                            {% for imgname in infoList4 %}
+{#							<td width="20%">#}
+								<a ><img style="height: 220px;width: 220px" src="{% static 'img/goods/'|add:imgname.comid|add:'.jpg' %}" onclick="buycom('{{ imgname.comid }}')"/>&nbsp;&nbsp;&nbsp;</br>
+									<p style="color: black">商品名称：{{ imgname.comname }}</p>
+									<p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                                    <p >&nbsp;&nbsp;&nbsp;</p>
+								</a>
+                                {% if forloop.counter|divisibleby:5 %}
+                                    </br>
+                                {% endif %}
+{#							</td>#}
+                            {% endfor %}
+{##}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/1110.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/img4.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/img2.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/1110.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+						</tr>
+					</table>
+				</div>
+{#乐器产品#}{#乐器产品#}{#乐器产品#}{#乐器产品#}{#乐器产品#}{#乐器产品#}
+				<div class=fenlel1>
+					<a href="#" name="E">
+						<p>♥
+							<font>{{ titlelist.4 }}</font>
+						</p>
+					</a>
+				</div>
+
+				<div class="public-width line5">
+					<table class="line5-table">
+{#						<tr>#}
+                            {% for imgname in infoList5 %}
+{#							<td width="20%">#}
+								<a ><img style="height: 220px;width: 220px" src="{% static 'img/goods/'|add:imgname.comid|add:'.jpg' %}" onclick="buycom('{{ imgname.comid }}')"/>&nbsp;&nbsp;&nbsp;</br>
+									<p style="color: black">商品名称：{{ imgname.comname }}</p>
+									<p style="color: black">商品价格：{{ imgname.commoney }}</p>
+                                    <p >&nbsp;&nbsp;&nbsp;</p>
+								</a>
+                                {% if forloop.counter|divisibleby:5 %}
+                                    </br>
+                                {% endif %}
+{#							</td>#}
+                            {% endfor %}
+{##}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/1110.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/img4.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/1110.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#							<td width="20%">#}
+{#								<a href="#"><img src={% static 'img/goods/img2.jpg' %} href="#" /></br>#}
+{#									<p>商品名称：lalal</p>#}
+{#									<p>商品价格：30元</p>#}
+{#								</a>#}
+{#							</td>#}
+{#						</tr>#}
+					</table>
+				</div>
+
+				<div class="daohang">
+					<a href="#A">开学好物</a>
+					<a href="#B">数码产品</a>
+					<a href="#C">生活用品</a>
+					<a href="#D">学习资料</a>
+					<a href="#E">乐器产品</a>
+					<a href="#">返回顶部</a>
+					<a href="#">返回底部</a>
+				</div>
+            {% endblock baseindex %}
+
+	</body>
+
+</html>
+
